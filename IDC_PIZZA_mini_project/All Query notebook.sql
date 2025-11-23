@@ -32,41 +32,53 @@ lines terminated by '\n'
 ignore 1 rows;
 
 --#QUE.2: List all unique pizza categories (DISTINCT)
-select DISTINCT(category) from pizza_types;
+select DISTINCT(category)
+       from pizza_types;
 
 --#QUE.3: Display `pizza_type_id`, `name`, and ingredients, replacing NULL ingredients with `"Missing Data"`. Show first 5 rows.
 select pizza_type_id, name, 
-       CASE when ingredients is null then "Missing Data" else ingredients END as INGREDIENTS
+       CASE when ingredients is null then "Missing Data" 
+       else ingredients END as INGREDIENTS
 from pizza_types
 limit 5;
 
 --#QUE.4: Check for pizzas missing a price (IS NULL).
-select * from pizzas where price is null;
+select * from pizzas 
+       where price is null;
 
 /* Phase 2: Filtering & Exploration */
 
 --#QUE.5: Orders placed on '2015-01-01' (SELECT + WHERE).
-select * from orders where date = '2015-01-01';
+select * from orders 
+       where date = '2015-01-01';
 
 --#QUE.6: Pizzas sold in sizes 'L' or 'XL'.
-select * from pizzas where size = 'L' or 'XL';
+select * from pizzas 
+       where size = 'L' or 'XL';
 
 --#QUE.7: Pizzas priced between $15.00 and $17.00.
-select * from pizzas where price >= 15.00 and price <= 17.00;
+select * from pizzas 
+       where price >= 15.00 and price <= 17.00;
 
 --#QUE.8: Pizzas with "Chicken" in the name.
-select * from pizza_types where name like "%Chicken%";
+select * from pizza_types 
+       where name like "%Chicken%";
 
 --#QUE.9: Orders on '2015-02-15' or placed after 8 PM.
-select * from orders where date = '2015-02-15' or time > '20:00:00';
+select * from orders 
+       where date = '2015-02-15' 
+       or time > '20:00:00';
 
 /*Phase 3: Sales Performance*/
 
 --#QUE.10: Total quantity of pizzas sold (SUM).
-select sum(quantity) as Total_Quantity_Sold from order_details;
+select sum(quantity) as Total_Quantity_Sold 
+       from order_details;
 
 --#QUE.11: Average pizza price (AVG).
-select round(avg(price),2) as "Avg Pizza Price (in $$)" from pizzas;
+select round(avg(price),2) 
+       as "Avg Pizza Price (in $$)" 
+from pizzas;
 
 --#QUE.12: Total order value per order (JOIN, SUM, GROUP BY).
 select 
