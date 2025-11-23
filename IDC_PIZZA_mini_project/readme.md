@@ -19,7 +19,4 @@ Examples included:
 - Pizzas never ordered
 - Price differences between different sizes of the same pizza
 
-## Getting Started
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/pizza-analytics.git
+  Must check the pdf file for whole presentation :)
